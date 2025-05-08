@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+//import { useDispatch } from "react-redux";
 import "./App.css";
-import { useDispatch } from "react-redux";
-import { sortAssetsBy24h } from "./features/assets/assetsSlice";
+//import { sortAssetsBy24h } from "./features/assets/assetsSlice";
 const AssetTable = () => {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const assets = useSelector((state) => state.assets.assets);
+  const [filter, setFilter] = useState("");
   const formatChange = (value) => {
     const rounded = value.toFixed(2);
     const isPositive = value > 0;
@@ -19,13 +20,20 @@ const AssetTable = () => {
       </span>
     );
   };
+  const sortedAssets = [...assets].sort((a, b) => {
+    if (filter === "asc") return a.change24h - b.change24h;
+    if (filter === "desc") return b.change24h - a.change24h;
+    return 0;
+  });
+
   return (
     <>
       <div className="sort-dropdown">
         <label htmlFor="sort-select">Sort by 24h %: </label>
         <select
           id="sort-select"
-          onChange={(e) => dispatch(sortAssetsBy24h(e.target.value))}
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
         >
           <option value="">-- Select --</option>
           <option value="desc">Top Gainers</option>
@@ -53,7 +61,7 @@ const AssetTable = () => {
             </tr>
           </thead>
           <tbody>
-            {assets.map((asset, index) => (
+            {sortedAssets.map((asset, index) => (
               <tr key={asset.symbol}>
                 <td>{index + 1}</td>
                 <td>
@@ -69,7 +77,6 @@ const AssetTable = () => {
                 <td>{formatChange(asset.change1h)}</td>
                 <td>{formatChange(asset.change24h)}</td>
                 <td>{formatChange(asset.change7d)}</td>
-
                 <td>${asset.marketCap.toLocaleString()}</td>
                 <td>${asset.volume24h.toLocaleString()}</td>
                 <td>{asset.circulatingSupply.toLocaleString()}</td>

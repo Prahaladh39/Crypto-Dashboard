@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  assets: [], // will be populated with mock data
+  assets: [],
 };
 
 const assetsSlice = createSlice({
@@ -11,16 +11,16 @@ const assetsSlice = createSlice({
     setAssets: (state, action) => {
       state.assets = action.payload;
     },
+
     sortAssetsBy24h: (state, action) => {
       const direction = action.payload;
-      console.log("Sorting by 24h %:", direction); // 'asc' or 'desc'
+      console.log("Sorting by 24h %:", direction);
       state.assets.sort((a, b) => {
         return direction === "asc"
           ? a.change24h - b.change24h
           : b.change24h - a.change24h;
       });
     },
-
     updateAsset: (state, action) => {
       const updatedAsset = action.payload;
       const index = state.assets.findIndex(

@@ -1,16 +1,14 @@
-/* Make the table container fill the available space and center it */
 .table-container {
   padding: 1rem;
   display: flex;
-  justify-content: center; /* Center the table horizontally */
+  justify-content: center;
   overflow-x: auto;
-  width: 100%; /* Ensures it spans full width */
+  width: 100%;
 }
 
-/* Table itself should be centered and scrollable */
 .asset-table {
   width: 100%;
-  min-width: 900px; /* Ensures the table is wide enough for larger screens */
+  min-width: 900px;
   border-collapse: collapse;
 }
 
