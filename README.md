@@ -1,12 +1,48 @@
-# React + Vite
+# Crypto Asset Tracker 💹
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time crypto asset monitoring dashboard built with modern frontend technologies. This project fetches live market data using the CoinGecko API and displays it in a user-friendly, responsive table with filtering functionality.
 
-Currently, two official plugins are available:
+## 🔧 Setup Instructions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Backend
+1. Clone the repository and navigate to the backend folder:
+  git clone https://github.com/Prahaladh39/Crypto-Dashboard
+  cd backend
+2. Install dependencies:
+npm install
 
-## Expanding the ESLint configuration
+3. Start the backend server (runs on port 5000):
+node server.js
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+1. Open a new terminal, navigate to the frontend directory:
+cd frontend
+2. Install dependencies:
+npm install
+3. Start the frontend development server (typically runs on port 3000):
+npm run dev
+
+🧠 Tech Stack & Architecture
+Frontend
+React (Vite)
+Redux Toolkit for state management
+CSS for styling
+
+Backend
+Node.js
+Express.js
+Node-fetch for third-party API calls
+CORS enabled for cross-origin requests
+
+🎥 Demo
+Loom video link: https://www.loom.com/share/f52f9c4cbeb14496ab7c9ceefa57d31a?sid=aee7c2f4-beb4-444b-a076-aabd0f5a455c
+
+🚀 Bonus Features Implemented
+✅ Integrated real-time data using CoinGecko API
+✅ Added filter functionality to search coins by name or symbol
+Loom video link: 
+🙋‍♂️ Contact
+If you have any questions or feedback, feel free to reach out!
+S.L.N Prahaladh
+📧 Email: prahaladh05@gmail.com
+🔗 LinkedIn: https://www.linkedin.com/in/slnprahaladh/
